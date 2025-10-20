@@ -1,0 +1,650 @@
+/* ------------------------------------ */
+/* 1. VARIÁVEIS E RESET MODERNO */
+/* ------------------------------------ */
+:root {
+    /* Cores PURAÍ */
+    --cor-acai: #8B008B;
+    --cor-destaque: #6A5ACD;
+    --cor-energia: #FFD700;
+    --cor-texto: #1a1a1a;
+    --cor-fundo: #FFFFFF;
+    --cor-fundo-sec: #F8F8F8; 
+    --cor-clara: #F0F0F0;
+    --cor-secundaria: #555555; 
+
+    /* Tipografia (Poppins) */
+    --fonte-principal: 'Poppins', sans-serif;
+    --font-peso-leve: 300;
+    --font-peso-regular: 400;
+    --font-peso-medio: 500;
+    --font-peso-semi-bold: 600;
+    --font-peso-bold: 700;
+
+    /* Espaçamento e Transições */
+    --padding-section: 80px 0;
+    --space-xs: 10px;
+    --space-sm: 15px; 
+    --space-md: 30px; 
+    --space-lg: 50px; 
+
+    --shadow-light: 0 6px 15px rgba(0, 0, 0, 0.12);
+    --transition: all 0.3s ease;
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    color: var(--cor-texto);
+    line-height: 1.6;
+    background-color: var(--cor-fundo);
+    scroll-behavior: smooth;
+    padding-bottom: 65px; 
+    font-weight: var(--font-peso-regular); 
+}
+
+/* Container para centralizar o conteúdo */
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ------------------------------------ */
+/* 2. ESTILOS GERAIS E BOTÕES */
+/* ------------------------------------ */
+
+h2 { 
+    font-size: 2.5em; 
+    margin-bottom: var(--space-md); 
+}
+h3 { 
+    font-size: 1.8em; 
+    margin-bottom: var(--space-md); 
+    color: var(--cor-acai); 
+}
+h4 { 
+    font-size: 1.2em; 
+    color: var(--cor-destaque); 
+    margin-bottom: var(--space-xs); 
+}
+
+/* Botão de Chamada para Ação (CTA) */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px; 
+    text-decoration: none;
+    font-weight: var(--font-peso-semi-bold);
+    text-transform: uppercase;
+    transition: var(--transition);
+    letter-spacing: 0.5px;
+    border: 2px solid transparent;
+    outline: none; 
+}
+
+.btn.primary {
+    background-color: var(--cor-energia);
+    color: var(--cor-acai);
+    border-color: var(--cor-energia);
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);
+}
+
+.btn.primary:hover, .btn.primary:focus {
+    background-color: var(--cor-acai);
+    color: var(--cor-fundo);
+    border-color: var(--cor-acai);
+    box-shadow: 0 0 0 4px var(--cor-energia), 0 6px 18px rgba(0, 0, 0, 0.3); 
+}
+
+.btn.small {
+    padding: 8px 20px;
+    font-size: 0.85em;
+    margin-top: 15px;
+}
+.btn.large-btn {
+    margin-top: 40px;
+    font-size: 1.1em;
+}
+
+
+/* ------------------------------------ */
+/* 3. CABEÇALHO E NAVEGAÇÃO */
+/* ------------------------------------ */
+.header {
+    background-color: var(--cor-fundo);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo-link {
+    text-decoration: none;
+}
+
+.logo {
+    font-size: 2em;
+    color: var(--cor-acai);
+    margin: 0;
+    font-weight: var(--font-peso-bold);
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    margin-left: 30px;
+    font-weight: var(--font-peso-medio);
+    position: relative;
+    outline: none; 
+}
+
+/* Efeito decorativo no menu (sublinhado animado) */
+.nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--cor-destaque);
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav a:hover::after, .nav a:focus::after { 
+    width: 100%;
+}
+.nav a:hover, .nav a:focus { 
+    color: var(--cor-destaque);
+}
+
+.nav a:focus {
+    outline: 2px solid var(--cor-destaque);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* ------------------------------------ */
+/* 4. SEÇÃO HERO (DESTAQUE) */
+/* ------------------------------------ */
+.hero {
+    background: url('./imagens/imagem1.png') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    color: white;
+    position: relative;
+    padding: 0;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+}
+
+.hero .container {
+    z-index: 2;
+    padding: 40px 0;
+}
+
+.hero-content h2 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    color: var(--cor-energia);
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    max-width: 600px;
+    font-weight: var(--font-peso-leve);
+}
+
+
+/* ------------------------------------ */
+/* 5. SEÇÃO PRODUTOS */
+/* ------------------------------------ */
+.produtos {
+    text-align: center;
+    padding: var(--padding-section);
+    background-color: var(--cor-fundo-sec); 
+}
+
+.produto-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.produto-item {
+    flex-basis: calc(33.33% - 20px);
+    background-color: var(--cor-fundo);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+    text-align: center;
+    border-top: 5px solid var(--cor-destaque);
+}
+
+.produto-item.special-feature {
+    border-top: 5px solid var(--cor-destaque); 
+}
+
+.produto-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.produto-item:hover img {
+    transform: scale(1.03); 
+}
+
+.produto-item img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid var(--cor-fundo-sec);
+    transition: transform 0.4s ease; 
+}
+
+
+/* ------------------------------------ */
+/* 6. SEÇÃO MAPA E LOCALIZAÇÃO */
+/* ------------------------------------ */
+.localizacao {
+    padding: var(--padding-section);
+    text-align: center;
+    background-color: var(--cor-fundo-sec); 
+}
+
+.endereco-info {
+    font-size: 1.1em;
+    margin-bottom: var(--space-md); 
+    line-height: 1.8;
+    color: var(--cor-texto);
+}
+
+.endereco-info strong {
+    color: var(--cor-acai);
+}
+
+.mapa-embed {
+    border-radius: 12px;
+    overflow: hidden; 
+    box-shadow: var(--shadow-light);
+}
+.mapa-embed iframe {
+    display: block; 
+}
+
+
+/* ------------------------------------ */
+/* 6.7. SEÇÃO DESTAQUE ENERGIA (ULTRA POWER - VISUAL FORTE) */
+/* ------------------------------------ */
+.produto-destaque-energia {
+    background-color: #3e0a3e; 
+    color: white; 
+    padding: 80px 0;
+    text-align: center;
+    overflow: hidden; 
+    position: relative;
+    border-top: 10px solid var(--cor-energia); 
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.produto-destaque-energia .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    gap: 60px;
+}
+
+.destaque-content {
+    flex-basis: 50%;
+    z-index: 10;
+    padding-left: 20px; 
+    border-left: 5px solid var(--cor-destaque);
+}
+
+.destaque-image {
+    flex-basis: 50%;
+    text-align: right;
+    position: relative;
+}
+
+.destaque-image img {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    transform: rotate(4deg) scale(1.1); 
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.8)) hue-rotate(10deg); 
+    border-radius: 8px;
+    transition: transform 0.5s ease;
+}
+
+/* Títulos e Textos */
+.tagline {
+    font-size: 1.3em;
+    font-weight: 800;
+    color: var(--cor-energia); 
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.produto-destaque-energia h2 {
+    font-size: 4em;
+    color: white;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 20px;
+    font-weight: 900; 
+    /* Efeito de CONTORNO forte */
+    text-shadow: 
+        -2px -2px 0 var(--cor-energia),
+        2px -2px 0 var(--cor-energia),
+        -2px 2px 0 var(--cor-energia),
+        2px 2px 0 var(--cor-energia);
+}
+
+.descricao {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color: #e0e0e0;
+}
+
+/* Botão de Chamada para Ação (CTA) Ousado */
+.btn.cta-destaque {
+    background-color: var(--cor-acai); 
+    color: var(--cor-energia);
+    padding: 18px 50px;
+    font-size: 1.2em;
+    border: 4px solid var(--cor-energia);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
+    font-weight: 700;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
+}
+
+.btn.cta-destaque:hover, .btn.cta-destaque:focus {
+    background-color: var(--cor-energia);
+    color: var(--cor-acai);
+    border-color: var(--cor-acai);
+    transform: scale(1.08);
+    box-shadow: 0 0 35px rgba(255, 215, 0, 0.9);
+    outline: none;
+}
+
+
+/* ------------------------------------ */
+/* 7. RODAPÉ (FOOTER) */
+/* ------------------------------------ */
+.footer {
+    background-color: var(--cor-acai); 
+    color: white;
+    padding: 50px 0;
+    font-size: 0.9em;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-col {
+    flex-basis: calc(30% - 20px);
+    line-height: 1.8;
+}
+
+.footer h4 {
+    color: var(--cor-energia);
+    margin-bottom: 18px;
+    font-size: 1.3em;
+}
+
+.footer p, .footer a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+}
+
+.footer a {
+    display: block; 
+    margin-right: 0;
+}
+
+.footer a:hover, .footer a:focus { 
+    color: var(--cor-energia);
+}
+
+.footer-col.copyright {
+    flex-basis: 100%;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.footer-col.copyright p {
+    display: inline;
+}
+
+/* ------------------------------------ */
+/* 7.5. FAIXA DE DESTAQUE FIXA (STICKY CTA) */
+/* ------------------------------------ */
+.sticky-cta {
+    background-color: var(--cor-acai); 
+    color: white;
+    padding: 15px 0;
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1100; 
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.sticky-cta .container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 30px; 
+    text-align: center;
+}
+
+.sticky-cta p {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: var(--font-peso-medio);
+}
+
+.sticky-cta strong {
+    color: var(--cor-energia); 
+}
+
+/* Estilo específico para o botão fixo */
+.btn.small-sticky {
+    padding: 10px 25px;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+/* ------------------------------------ */
+/* 9. SEÇÃO DIFERENCIAIS EQUILIBRADA (MEIO-TERMO) */
+/* ------------------------------------ */
+
+.sobre-equilibrado {
+    /* Fundo Roxo Forte (como a cor do açaí) */
+    background-color:#9c259c;
+    color: white; /* Texto em Branco para alto contraste */
+    padding: var(--padding-section); 
+    text-align: center;
+    /* Borda sutil na parte superior para separação elegante */
+    border-top: 3px solid var(--cor-destaque); 
+}
+
+/* Remove o flexbox e centraliza o bloco de conteúdo */
+.sobre-equilibrado .container {
+    display: block; 
+}
+
+.sobre-equilibrado .destaque-content {
+    flex-basis: 100%; 
+    text-align: center;
+    padding-left: 0;
+    border-left: none;
+    max-width: 900px; 
+    margin: 0 auto;
+}
+
+/* Tagline em Amarelo Dourado para Destaque */
+.tagline-equilibrada {
+    font-size: 1.1em;
+    font-weight: var(--font-peso-semi-bold);
+    color: var(--cor-energia); /* Amarelo dourado */
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.sobre-equilibrado h2 {
+    color: white; /* Título em Branco */
+    font-size: 2.8em;
+    font-weight: var(--font-peso-bold);
+    text-shadow: none; /* Sem contorno agressivo */
+    margin-bottom: var(--space-sm);
+}
+
+.descricao-equilibrada {
+    font-size: 1.1em;
+    margin-bottom: var(--space-lg);
+    color: rgba(255, 255, 255, 0.9); /* Branco sutil */
+    max-width: 700px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Listagem de Cards (Centralização mantida) */
+.diferencial-list-power {
+    margin-top: var(--space-md);
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; 
+    
+    max-width: 650px; /* Levemente mais largos */
+    margin-left: auto; /* CENTRALIZA O BLOCO DE CARDS */
+    margin-right: auto; /* CENTRALIZA O BLOCO DE CARDS */
+}
+
+.info-card-power {
+    /* Fundo Roxo Mais Claro/Escuro para Contraste com o Fundo Principal */
+    background-color: #720072; 
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Sombra mais visível para "levantar" o card */
+    border-left: 5px solid var(--cor-destaque); /* Borda lateral de destaque */
+    border: 1px solid #9c259c; /* Borda externa para definição */
+    transition: var(--transition);
+    text-align: left; 
+}
+
+.info-card-power:hover {
+    background-color: #610061;
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6); 
+}
+
+.info-card-power h4 {
+    color: var(--cor-energia); /* Título do card em Amarelo Dourado */
+    font-weight: var(--font-peso-semi-bold);
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.info-card-power p {
+    font-size: 0.95em;
+    color: rgba(255, 255, 255, 0.85); /* Texto em Branco Sutil */
+}
+
+/* Garante que o botão de vendas use o estilo CTA primário e centralize */
+.sobre-equilibrado .btn.primary {
+    margin-top: var(--space-lg);
+}
+
+/* Remove a imagem se ela estiver presente (para garantir) */
+.sobre-equilibrado .destaque-image {
+    display: none;
+}
+
+/* ------------------------------------ */
+/* 8. RESPONSIVIDADE PARA MOBILE */
+/* ------------------------------------ */
+@media (max-width: 992px) {
+    .produto-item {
+        flex-basis: calc(50% - 15px);
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ajustes Gerais */
+    .header .container { flex-direction: column; padding: 10px 0; }
+    .nav { margin-top: 15px; width: 100%; text-align: center; }
+    .nav a { margin: 0 5px; font-size: 0.9em; padding: 8px 10px; display: inline-block; }
+    .hero { height: 50vh; text-align: center; }
+    .hero-content h2 { font-size: 2.5em; }
+    .produto-item { flex-basis: 100%; }
+    .footer .container { flex-direction: column; text-align: center; }
+    .footer-col { flex-basis: 100%; margin-bottom: var(--space-md); }
+    .footer h4 { margin-bottom: var(--space-sm); }
+    .footer-col:not(.copyright) a { display: inline-block; margin: 5px 10px; }
+    
+    /* Ajustes para a Seção Destaque (Monster - Mantida Forte) */
+    .produto-destaque-energia { padding: 50px 0; }
+    .produto-destaque-energia .container { flex-direction: column; text-align: center; gap: 30px; }
+    .destaque-content, .destaque-image { flex-basis: 100%; text-align: center; padding-left: 0; border-left: none; }
+    .destaque-image { order: -1; margin-bottom: 20px; }
+    .destaque-image img { max-height: 250px; transform: none; filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.7)); }
+    .produto-destaque-energia h2 { font-size: 3em; text-shadow: 1px 1px 0 var(--cor-energia), -1px -1px 0 var(--cor-energia); }
+    
+    /* Ajustes para a Nova Seção (Equilibrada) */
+    .sobre-equilibrado { padding: 50px 0; }
+    .sobre-equilibrado .destaque-content h2 { font-size: 2.5em; }
+    /* Garante que os cards fiquem alinhados corretamente no mobile */
+    .diferencial-list-power { max-width: 90%; } 
+    .info-card-power { text-align: left; }
+}
+
+@media (max-width: 600px) {
+    /* Ajustes para a Faixa Fixa em Mobile */
+    body { padding-bottom: 90px; }
+    .sticky-cta .container { flex-direction: column; gap: 5px; }
+    .sticky-cta p { font-size: 0.9em; }
+    .sticky-cta { padding: 8px 0; }
+    .btn.small-sticky { padding: 8px 20px; }
+}
