@@ -180,7 +180,7 @@ h4 {
 /* 4. SEÇÃO HERO (DESTAQUE) */
 /* ------------------------------------ */
 .hero {
-    background: url('./imagens/imagem1.png') no-repeat center center/cover;
+    background: url('./imagem1.png') no-repeat center center/cover;
     height: 70vh;
     display: flex;
     align-items: center;
@@ -647,4 +647,5 @@ h4 {
     .sticky-cta p { font-size: 0.9em; }
     .sticky-cta { padding: 8px 0; }
     .btn.small-sticky { padding: 8px 20px; }
+
 }
